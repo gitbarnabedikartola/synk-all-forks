@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    # Tmate ##
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+    # # Tmate ##
+    # - name: Setup tmate session
+    #   uses: mxschmitt/action-tmate@v3
     
     - name: Synk Forks
       run: |
