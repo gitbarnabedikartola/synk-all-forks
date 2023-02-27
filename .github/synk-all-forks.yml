@@ -1,0 +1,25 @@
+name: Build Package
+
+# Controls when the workflow will run
+on:
+  # schedule:
+    # - cron:  '30 2 * * *'
+  
+  #workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+    # Tmate ##
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+    
+#     - name: Synk Forks
+#       run: |
+#         echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+#         
+#         gh repo list owner -L 100 | awk '{print $1}'
+#         
+#         gh repo sync owner/cli-fork
