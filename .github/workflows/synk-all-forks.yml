@@ -19,7 +19,7 @@ jobs:
     - name: Synk Forks
       run: |
         echo "Auth"
-        echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+        echo ${{ github.token }} | gh auth login --with-token
         
         
         #gh repo list ${{ github.actor }} -L 100 | awk '{print $1}'
