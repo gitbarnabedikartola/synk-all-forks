@@ -1,4 +1,4 @@
-name: Build Package
+name: Synk All Forks
 
 # Controls when the workflow will run
 on:
@@ -16,10 +16,10 @@ jobs:
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
     
-#     - name: Synk Forks
-#       run: |
-#         echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-#         
-#         gh repo list owner -L 100 | awk '{print $1}'
-#         
-#         gh repo sync owner/cli-fork
+    - name: Synk Forks
+      run: |
+        echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+        
+        gh repo list ${{ github.actor }} -L 100 | awk '{print $1}'
+        
+        # gh repo sync owner/cli-fork
