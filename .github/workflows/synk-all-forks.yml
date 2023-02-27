@@ -25,6 +25,6 @@ jobs:
         #gh repo list ${{ github.actor }} -L 100 | awk '{print $1}'
         
         echo "for i in ..."
-        for i in $(gh repo list ${{ github.actor }} -L 100 | awk '{print $1}'); do
+        for i in $(gh repo list --fork ${{ github.actor }} -L 100 | awk '{print $1}'); do
             gh repo sync $i
         done
