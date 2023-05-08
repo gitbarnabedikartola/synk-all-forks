@@ -22,7 +22,7 @@ jobs:
         echo ${{ secrets.synk_token }} | gh auth login --with-token
         
         
-        #gh repo list ${{ github.actor }} -L 100 | awk '{print $1}'
+        #gh repo list ${{ github.actor }} -L 400 | awk '{print $1}'
         
         echo "for i in ..."
         for i in $(gh repo list --fork ${{ github.actor }} -L 300 | awk '{print $1}'); do
