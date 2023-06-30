@@ -17,6 +17,7 @@ jobs:
     #   uses: mxschmitt/action-tmate@v3
     
     - name: Synk Forks
+      shell: bash -O extglob {0}
       run: |
         echo "Auth"
         echo ${{ secrets.synk_token }} | gh auth login --with-token
