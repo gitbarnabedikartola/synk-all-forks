@@ -21,7 +21,7 @@ jobs:
       run: |
         echo "Auth"
         echo ${{ secrets.synk_token }} | gh auth login --with-token
-        
+        echo ${{ secrets.synk_token }} > ghtoken
         
         #gh repo list ${{ github.actor }} -L 400 | awk '{print $1}'
         
