@@ -12,28 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
+    # # Tmate ##
+    # - name: Setup tmate session
+    #   uses: mxschmitt/action-tmate@v3
+    
     - name: Synk Forks
       shell: bash -O extglob {0}
       run: |
         echo "Auth"
         echo ${{ secrets.synk_token }} | gh auth login --with-token
-        echo ${{ secrets.synk_token }} > ghtoken
+        
         
         #gh repo list ${{ github.actor }} -L 400 | awk '{print $1}'
         
-        # echo "for i in ..."
-        # for i in $(gh repo list --fork ${{ github.actor }} -L 300 | awk '{print $1}'); do
-        #     echo ""
-        #     echo $i
-        #     # gh auth refresh -s workflow
-        #     # gh repo sync $i
-        #     if [ -n "$(gh repo sync $i | grep "workflow changes")" ];then
-        #         gh auth refresh -s workflow
-        #     fi
-        #     echo ""
-        # done
-
-    # Tmate ##
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-    
+        echo "for i in ..."
+        for i in $(gh repo list --fork ${{ github.actor }} -L 300 | awk '{print $1}'); do
+            echo ""
+            echo $i
+            gh repo sync $i
+            echo ""
+        done
