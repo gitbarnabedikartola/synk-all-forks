@@ -27,7 +27,7 @@ jobs:
         
         echo "for i in ..."
         for i in $(gh repo list --fork ${{ github.actor }} -L 300 | awk '{print $1}'); do
-            echo ""
+            # echo ""
             echo $i
             gh repo sync $i
             echo ""
