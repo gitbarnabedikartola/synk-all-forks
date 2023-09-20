@@ -29,6 +29,10 @@ jobs:
         for i in $(gh repo list --fork ${{ github.actor }} -L 300 | awk '{print $1}'); do
             echo ""
             echo $i
-            gh repo sync $i
+            # gh auth refresh -s workflow
+            # gh repo sync $i
+            if [ -n "$(gh repo sync $i | grep "workflow changes")" ];then
+                gh auth refresh -s workflow
+            fi
             echo ""
         done
